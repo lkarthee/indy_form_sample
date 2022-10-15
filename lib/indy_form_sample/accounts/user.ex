@@ -16,6 +16,6 @@ defmodule IndyFormSample.Accounts.User do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:name, :age, :contact_me, :phone, :email])
-    |> validate_required([:name, :age, :contact_me, :phone, :email])
+    |> validate_required([:name, :age, :contact_me])
   end
 end

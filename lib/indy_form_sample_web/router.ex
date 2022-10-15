@@ -21,6 +21,8 @@ defmodule IndyFormSampleWeb.Router do
     live_session :users do
       live "/", UserLive.Index, :index
       live "/new", UserLive.Index, :new
+      live "/:id", UserLive.Show, :show
+      live "/:id/edit", UserLive.Show, :edit
       live "/:id/edit", UserLive.Index, :edit
       live "/:id/delete", UserLive.Index, :new
     end
