@@ -36,6 +36,8 @@ defmodule IndyFormSampleWeb.UserIndyFormLive.FormComponent do
     |> assign(:show_phone, show_phone?)
     |> assign(:show_email, show_email?)
   end
+
+  def on_value_change(socket, _), do: socket
 end
 
   # @impl true
