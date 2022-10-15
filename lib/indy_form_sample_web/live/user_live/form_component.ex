@@ -1,7 +1,7 @@
 defmodule IndyFormSampleWeb.UserLive.FormComponent do
   use IndyFormSampleWeb, :live_component
 
-  alias IndyFormSample.Accounts
+  alias IndyFormSample.OriginalAccounts, as: Accounts
 
   @impl true
   def update(%{user: user} = assigns, socket) do

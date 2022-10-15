@@ -2,7 +2,7 @@ defmodule IndyFormSampleWeb.UserIndyFormLive.Index do
   use IndyFormSampleWeb, :live_view
 
   alias IndyFormSample.Accounts
-  alias IndyFormSample.Accounts.User
+
 
   @impl true
   def mount(_params, _session, socket) do
@@ -17,13 +17,13 @@ defmodule IndyFormSampleWeb.UserIndyFormLive.Index do
   defp apply_action(socket, :edit, %{"id" => id}) do
     socket
     |> assign(:page_title, "Edit User")
-    |> assign(:user, Accounts.get_user!(id))
+    |> assign(:user, Accounts.get_row!(id))
   end
 
   defp apply_action(socket, :new, _params) do
     socket
     |> assign(:page_title, "New User")
-    |> assign(:user, %User{})
+    |> assign(:user, Accounts.new_row())
   end
 
   defp apply_action(socket, :index, _params) do
@@ -34,13 +34,13 @@ defmodule IndyFormSampleWeb.UserIndyFormLive.Index do
 
   @impl true
   def handle_event("delete", %{"id" => id}, socket) do
-    user = Accounts.get_user!(id)
-    {:ok, _} = Accounts.delete_user(user)
+    user = Accounts.get_row!(id)
+    {:ok, _} = Accounts.delete_row(user)
 
     {:noreply, assign(socket, :users, list_users())}
   end
 
   defp list_users do
-    Accounts.list_users()
+    Accounts.list_rows()
   end
 end

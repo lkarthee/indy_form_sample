@@ -18,13 +18,23 @@ defmodule IndyFormSampleWeb.Router do
     pipe_through :browser
 
     # get "/", PageController, :index
-    live_session :users do
-      live "/", UserLive.Index, :index
-      live "/new", UserLive.Index, :new
-      live "/:id", UserLive.Show, :show
-      live "/:id/edit", UserLive.Show, :edit
-      live "/:id/edit", UserLive.Index, :edit
-      live "/:id/delete", UserLive.Index, :new
+    
+    # live_session :users do
+    #   live "/", UserLive.Index, :index
+    #   live "/new", UserLive.Index, :new
+    #   live "/:id", UserLive.Show, :show
+    #   live "/:id/edit", UserLive.Show, :edit
+    #   live "/:id/edit", UserLive.Index, :edit
+    #   live "/:id/delete", UserLive.Index, :new
+    # end
+
+    live_session :users_indy_form do
+      live "/", UserIndyFormLive.Index, :index
+      live "/new", UserIndyFormLive.Index, :new
+      live "/:id", UserIndyFormLive.Show, :show
+      live "/:id/edit", UserIndyFormLive.Show, :edit
+      live "/:id/edit", UserIndyFormLive.Index, :edit
+      live "/:id/delete", UserIndyFormLive.Index, :new
     end
   end
 

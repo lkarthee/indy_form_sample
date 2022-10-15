@@ -1,4 +1,4 @@
-defmodule IndyFormSample.Accounts do
+defmodule IndyFormSample.OriginalAccounts do
   @moduledoc """
   The Accounts context.
   """
@@ -13,11 +13,11 @@ defmodule IndyFormSample.Accounts do
 
   ## Examples
 
-      iex> list_rows()
+      iex> list_users()
       [%User{}, ...]
 
   """
-  def list_rows do
+  def list_users do
     Repo.all(User)
   end
 
@@ -28,28 +28,28 @@ defmodule IndyFormSample.Accounts do
 
   ## Examples
 
-      iex> get_row!(123)
+      iex> get_user!(123)
       %User{}
 
-      iex> get_row!(456)
+      iex> get_user!(456)
       ** (Ecto.NoResultsError)
 
   """
-  def get_row!(id), do: Repo.get!(User, id)
+  def get_user!(id), do: Repo.get!(User, id)
 
   @doc """
   Creates a user.
 
   ## Examples
 
-      iex> create_row(%{field: value})
+      iex> create_user(%{field: value})
       {:ok, %User{}}
 
-      iex> create_row(%{field: bad_value})
+      iex> create_user(%{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_row(attrs \\ %{}) do
+  def create_user(attrs \\ %{}) do
     %User{}
     |> User.changeset(attrs)
     |> Repo.insert()
@@ -60,29 +60,17 @@ defmodule IndyFormSample.Accounts do
 
   ## Examples
 
-      iex> update_row(user, %{field: new_value})
+      iex> update_user(user, %{field: new_value})
       {:ok, %User{}}
 
-      iex> update_row(user, %{field: bad_value})
+      iex> update_user(user, %{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_row(%User{} = user, attrs) do
+  def update_user(%User{} = user, attrs) do
     user
     |> User.changeset(attrs)
     |> Repo.update()
-  end
-
-  @doc """
-  New user.
-
-  ## Examples
-
-      iex> new_row()
-      %User{}
-  """
-  def new_row() do
-    %User{}
   end
 
   @doc """
@@ -90,14 +78,14 @@ defmodule IndyFormSample.Accounts do
 
   ## Examples
 
-      iex> delete_row(user)
+      iex> delete_user(user)
       {:ok, %User{}}
 
-      iex> delete_row(user)
+      iex> delete_user(user)
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_row(%User{} = user) do
+  def delete_user(%User{} = user) do
     Repo.delete(user)
   end
 
@@ -106,24 +94,11 @@ defmodule IndyFormSample.Accounts do
 
   ## Examples
 
-      iex> cast_row(user)
+      iex> change_user(user)
       %Ecto.Changeset{data: %User{}}
 
   """
-  def cast_row(%User{} = user, attrs \\ %{}) do
-    User.changeset(user, attrs)
-  end
-
-  @doc """
-  Returns an `%Ecto.Changeset{}` for tracking user changes.
-
-  ## Examples
-
-      iex> change_row(user)
-      %Ecto.Changeset{data: %User{}}
-
-  """
-  def change_row(%User{} = user, attrs \\ %{}) do
+  def change_user(%User{} = user, attrs \\ %{}) do
     User.changeset(user, attrs)
   end
 end

@@ -1,7 +1,7 @@
 defmodule IndyFormSampleWeb.UserLive.Show do
   use IndyFormSampleWeb, :live_view
 
-  alias IndyFormSample.Accounts
+  alias IndyFormSample.OriginalAccounts, as: Accounts
 
   @impl true
   def mount(_params, _session, socket) do

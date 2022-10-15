@@ -12,10 +12,16 @@ defmodule IndyFormSample.Accounts.User do
     timestamps()
   end
 
+  @fields [:name, :age, :contact_me, :phone, :email]
+  @required_fields [:name, :age, :contact_me]
+
+  @doc false
+  def cast_row(user, attrs, opts), do: cast(user, attrs, @fields, opts)
+
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:name, :age, :contact_me, :phone, :email])
-    |> validate_required([:name, :age, :contact_me])
+    |> cast(attrs, @fields)
+    |> validate_required(@required_fields)
   end
 end

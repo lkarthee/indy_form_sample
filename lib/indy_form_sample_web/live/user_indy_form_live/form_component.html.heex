@@ -20,15 +20,19 @@
     <%= label f, :contact_me %>
     <%= select f, :contact_me, Ecto.Enum.values(IndyFormSample.Accounts.User, :contact_me), prompt: "Choose a value" %>
     <%= error_tag f, :contact_me %>
-  
+
+    <%= if @show_phone do %>
     <%= label f, :phone %>
     <%= text_input f, :phone %>
     <%= error_tag f, :phone %>
-  
+    <% end %>
+
+    <%= if @show_email do %>
     <%= label f, :email %>
     <%= text_input f, :email %>
     <%= error_tag f, :email %>
-  
+    <% end %>
+
     <div>
       <%= submit "Save", phx_disable_with: "Saving..." %>
     </div>
