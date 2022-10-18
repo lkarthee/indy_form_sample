@@ -9,7 +9,7 @@ defmodule IndyFormSampleWeb.UserIndyFormLive.FormComponent do
   @create_action :new
   @edit_action :edit
 
-  form_component(@form_key, @create_action, @edit_action)
+  form_component(@form_key, @create_action, @edit_action, change_listeners: true)
 
   def on_init(socket) do
     show_phone? = show_phone?(socket.assigns.row.contact_me)
