@@ -5,12 +5,11 @@ defmodule IndyFormSampleWeb.UserIndyFormLive.FormComponent do
 
   use IndyForm.FormComponent, context: Context
 
-  @name "User"
   @form_key "user"
   @create_action :new
   @edit_action :edit
 
-  form_component(@name, @form_key, @create_action, @edit_action)
+  form_component(@form_key, @create_action, @edit_action)
 
   def on_init(socket) do
     show_phone? = show_phone?(socket.assigns.row.contact_me)
